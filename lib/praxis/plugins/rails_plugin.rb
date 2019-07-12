@@ -29,7 +29,7 @@ module Praxis
               }
               Praxis::Notifications.instrument("start_processing.action_controller", rails_payload.dup)
 
-              Praxis::Notifications.instrument 'process_action.action_controller' do |data|
+              Praxis::Notifications.instrument('process_action.action_controller', rails_payload.dup) do |data|
                 begin
                   res = orig_instrumented_dispatch(praxis_payload)
                   # TODO: also add the db_runtime and view_runtime values...
