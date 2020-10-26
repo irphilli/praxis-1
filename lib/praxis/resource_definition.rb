@@ -87,9 +87,9 @@ module Praxis
         @display_name = string
       end
 
-      def on_finalize
+      def on_finalize(&block)
         if block_given?
-          @on_finalize << Proc.new
+          @on_finalize << block
         end
 
         @on_finalize
